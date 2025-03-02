@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+:root {
+  --primary-color: #1f2937; /* Color de fondo oscuro */
+  --secondary-color: #ffffff; /* Color de texto blanco */
+  --accent-color: #4ade80; /* Verde para WhatsApp u otros elementos */
+  --social-icon-hover: #facc15; /* Color hover para íconos sociales */
+}

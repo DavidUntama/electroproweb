@@ -1,0 +1,81 @@
+---
+---
+<nav class="bg-[var(--primary-color)] text-[var(--secondary-color)] py-4 px-4 sm:px-6">
+  <!-- Contenedor principal -->
+  <div class="flex justify-between items-center">
+    <!-- Logo o nombre del sitio -->
+    <div class="text-lg font-bold text-[var(--accent-color)]">
+      ElectroPro
+    </div>
+
+    <!-- Menú principal (visible en pantallas grandes) -->
+    <ul class="hidden sm:flex space-x-6 items-center">
+      <li><a href="/" class="hover:text-[var(--accent-color)]">Inicio</a></li>
+      <li class="relative group">
+        <!-- Opción "Servicios" con indicador de desplegable -->
+        <span class="flex items-center hover:text-[var(--accent-color)] cursor-pointer">
+          Servicios
+          <i class="fas fa-chevron-down ml-1 text-xs"></i> <!-- Flecha hacia abajo -->
+        </span>
+        <!-- Submenú desplegable -->
+        <ul class="w-64 absolute top-full left-0 bg-[var(--primary-color)] text-sm py-2 rounded shadow-md hidden group-hover:block">
+          <li><a href="/servicios/mantenimiento" class="block px-4 py-2 hover:bg-gray-700">Mantenimientos Preventivos y Correctivos</a></li>
+          <li><a href="/servicios/visitas-tecnicas" class="block px-4 py-2 hover:bg-gray-700">Visitas Técnicas</a></li>
+          <li><a href="/servicios/puesta-a-tierra" class="block px-4 py-2 hover:bg-gray-700">Instalación de Puesta a Tierra, Pozos a Tierra</a></li>
+          <li><a href="/servicios/instalaciones" class="whitespace-nowrap block px-4 py-2 hover:bg-gray-700">Instalaciones Eléctricas y Proyectos</a></li>
+          <li><a href="/servicios/habilitaciones" class="block px-4 py-2 hover:bg-gray-700">Habilitaciones Eléctricas Urbanas</a></li>
+        </ul>
+      </li>
+      <li><a href="/clientes" class="hover:text-[var(--accent-color)]">Testimonios</a></li>
+      <li><a href="/proyectos" class="hover:text-[var(--accent-color)]">Proyectos</a></li>
+      <li><a href="/aprende" class="hover:text-[var(--accent-color)]">Aprende</a></li>
+    </ul>
+
+    <!-- Menú hamburguesa-->
+    <div class="sm:hidden">
+      <button id="menu-toggle" class="text-[var(--secondary-color)] focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i> <!-- Ícono de hamburguesa -->
+      </button>
+    </div>
+  </div>
+
+  <!-- Menú móvil (oculto por defecto) -->
+  <ul id="mobile-menu" class="hidden sm:hidden mt-4 space-y-2">
+    <li><a href="/" class="block px-4 py-2 hover:bg-gray-700">Inicio</a></li>
+    <li>
+      <button class="w-full text-left px-4 py-2 hover:bg-gray-700 flex justify-between items-center">
+        Servicios
+        <i class="fas fa-chevron-down text-xs"></i> <!-- Flecha hacia abajo -->
+      </button>
+      <!-- Submenú móvil -->
+      <ul class="pl-4 hidden">
+        <li><a href="/servicios/mantenimiento" class="block px-4 py-2 hover:bg-gray-700">Mantenimientos Preventivos y Correctivos</a></li>
+        <li><a href="/servicios/visitas-tecnicas" class="block px-4 py-2 hover:bg-gray-700">Visitas Técnicas</a></li>
+        <li><a href="/servicios/puesta-a-tierra" class="block px-4 py-2 hover:bg-gray-700">Instalación de Puesta a Tierra, Pozos a Tierra</a></li>
+        <li><a href="/servicios/instalaciones" class="block px-4 py-2 hover:bg-gray-700">Instalaciones Eléctricas y Proyectos</a></li>
+        <li><a href="/servicios/habilitaciones" class="block px-4 py-2 hover:bg-gray-700">Habilitaciones Eléctricas Urbanas</a></li>
+      </ul>
+    </li>
+    <li><a href="/clientes" class="block px-4 py-2 hover:bg-gray-700">Clientes Satisfechos</a></li>
+    <li><a href="/proyectos" class="block px-4 py-2 hover:bg-gray-700">Proyectos</a></li>
+    <li><a href="/aprende" class="block px-4 py-2 hover:bg-gray-700">Aprende con Nosotros</a></li>
+  </ul>
+</nav>
+
+<script>
+  // Script para el menú móvil
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuToggle?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  // Mostrar/ocultar submenú móvil
+  const serviceButton = mobileMenu?.querySelector('button');
+  const mobileSubMenu = serviceButton?.nextElementSibling;
+
+  serviceButton?.addEventListener('click', () => {
+    mobileSubMenu?.classList.toggle('hidden');
+  });
+</script>
