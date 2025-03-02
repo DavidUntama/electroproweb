@@ -18,14 +18,38 @@ Inside of your Astro project, you'll see the following folders and files:
 
 ```text
 /
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+├── components/
+│   ├── Header.astro         # Barra superior + navegación
+│   ├── TopBar.astro         # Barra con contacto y redes sociales
+│   ├── Navigation.astro     # Menú de navegación con desplegables
+│   ├── Hero.astro           # Sección principal con slider
+│   ├── ServiceCard.astro    # Componente reutilizable para tarjetas de servicios
+│   ├── ServiceSection.astro # Sección de servicios en la página principal
+│   ├── Testimonials.astro   # Sección de testimonios/clientes satisfechos
+│   ├── Footer.astro         # Pie de página
+│   └── WhatsAppButton.astro # Botón flotante de WhatsApp
+├── layouts/
+│   ├── Layout.astro         # Layout principal
+│   └── ServiceLayout.astro  # Layout para páginas de servicios específicos
+├── pages/
+│   ├── index.astro          # Página principal
+│   ├── servicios/
+│   │   ├── index.astro      # Página que muestra todos los servicios
+│   │   ├── mantenimiento.astro
+│   │   ├── visitas-tecnicas.astro
+│   │   ├── puesta-a-tierra.astro
+│   │   ├── instalaciones.astro
+│   │   └── habilitaciones.astro
+│   ├── clientes.astro       # Página de clientes satisfechos
+│   ├── proyectos.astro      # Galería de proyectos realizados
+│   ├── aprende.astro        # Sección educativa
+│   └── trabaja.astro        # Página para reclutamiento (futura)
+├── styles/
+│   ├── global.css           # Estilos globales
+│   └── animations.css       # Animaciones CSS para el slider
+└── scripts/
+    └── main.js              # JavaScript para interactividad, incluyendo Swiper
 ```
 
 To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
