@@ -1,0 +1,55 @@
+---
+// src/components/ServiceSection.astro
+import ServiceCard from './ServiceCard.astro';
+
+// Datos de los servicios (puedes mover esto a un archivo externo más adelante)
+const services = [
+  {
+    title: 'Mantenimientos Preventivos y Correctivos',
+    description: 'Mantenimiento eléctrico programado y soluciones inmediatas.',
+    icon: 'fa-tools',
+    link: '/servicios/mantenimiento',
+  },
+  {
+    title: 'Visitas Técnicas',
+    description: 'Asesoría y diagnóstico en sitio.',
+    icon: 'fa-house-user',
+    link: '/servicios/visitas-tecnicas',
+  },
+  {
+    title: 'Puesta a Tierra',
+    description: 'Instalación de pozos a tierra y sistemas de seguridad.',
+    icon: 'fa-bolt',
+    link: '/servicios/puesta-a-tierra',
+  },
+  {
+    title: 'Instalaciones Eléctricas',
+    description: 'Proyectos eléctricos integrales para hogares y empresas.',
+    icon: 'fa-lightbulb',
+    link: '/servicios/instalaciones',
+  },
+  {
+    title: 'Habilitaciones Urbanas',
+    description: 'Cumplimos con normativas técnicas y urbanísticas.',
+    icon: 'fa-city',
+    link: '/servicios/habilitaciones',
+  },
+];
+---
+<section class="service-section py-12 bg-gray-100">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">
+      Nuestros Servicios
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map((service) => (
+        <ServiceCard 
+          title={service.title} 
+          description={service.description} 
+          icon={service.icon} 
+          link={service.link}
+        />
+      ))}
+    </div>
+  </div>
+</section>

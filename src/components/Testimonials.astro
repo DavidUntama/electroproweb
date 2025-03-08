@@ -1,0 +1,115 @@
+---
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import "../styles/global.css";
+
+import TestimonialCard from './TestimonialCard.astro';
+
+// Datos de testimonios
+const testimonials = [
+  {
+    name: 'Juan Pérez',
+    position: 'Gerente',
+    company: 'Empresa ABC',
+    testimonial: 'Excelente servicio. Resolvieron nuestra emergencia eléctrica en menos de 2 horas.',
+    image: '/images/cliente1.jpg',
+  },
+  {
+    name: 'María Gómez',
+    position: 'Dueña',
+    company: 'Restaurante XYZ',
+    testimonial: 'Profesionales altamente capacitados. Recomendado 100%.',
+    image: '/images/cliente2.jpg',
+  },
+  {
+    name: 'Carlos López',
+    position: 'Ingeniero',
+    company: 'Constructora 123',
+    testimonial: 'Cumplieron con todas las normativas técnicas en nuestro proyecto urbano.',
+    image: '/images/cliente3.jpg',
+  },
+];
+---
+<section class="testimonials-section py-12 bg-gray-100">
+  <div class="container mx-auto px-4">
+    <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">
+      Testimonios de Clientes
+    </h2>
+
+    <!-- Slider de testimonios -->
+    <div class="swiper-container max-w-4xl mx-auto">
+      <div class="swiper-wrapper">
+        {testimonials.map((testimonial) => (
+          <div class="swiper-slide">
+            <TestimonialCard
+              name={testimonial.name}
+              position={testimonial.position}
+              company={testimonial.company}
+              testimonial={testimonial.testimonial}
+              image={testimonial.image}
+            />
+          </div>
+        ))}
+      </div>
+
+      <!-- Botones de navegación -->
+      <div class="swiper-button-next text-gray-600 hover:text-[var(--accent-color)] transition-colors"></div>
+      <div class="swiper-button-prev text-gray-600 hover:text-[var(--accent-color)] transition-colors"></div>
+
+      <!-- Paginación -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <script>
+    import Swiper from 'swiper';
+    import { Navigation, Pagination } from 'swiper/modules';
+  document.addEventListener('DOMContentLoaded', () => {
+      new Swiper('.swiper-container', {
+        modules: [Navigation, Pagination],
+        slidesPerView: 1, // 1 slide en móviles
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 1, // Tablets pequeñas
+          },
+          768: {
+            slidesPerView: 2, // Tablets medianas
+          },
+          1024: {
+            slidesPerView: 3, // Escritorios
+          },
+        },
+      });
+    });
+  </script>
+</section>
+
+<style>
+  .swiper-container {
+    @apply overflow-hidden rounded-lg; /* Contenedor con bordes redondeados */
+  }
+  .swiper-slide {
+    @apply flex items-center justify-center; /* Centra los testimonios */
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    @apply text-2xl; /* Tamaño de los botones */
+  }
+  .swiper-pagination-bullet {
+    @apply bg-gray-400; /* Color de los puntos */
+  }
+  .swiper-pagination-bullet-active {
+    @apply bg-[var(--accent-color)]; /* Color del punto activo */
+  }
+</style>
